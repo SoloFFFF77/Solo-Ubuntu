@@ -12,11 +12,11 @@ Solo-Ubuntu is pre-configured with a suite of essential applications and optimiz
 
 | Feature | Description | Benefit |
 | :--- | :--- | :--- |
-| **Full GUI via VNC** | Utilizes a lightweight Desktop Environment (e.g., XFCE) and a VNC server for remote graphical access. | Seamless desktop experience on your Android device. |
-| **Developer Tools** | Pre-installed with **VS Code**, **Git**, and **Android Studio** (placeholder for future implementation). | Ready-to-code environment for mobile development and version control. |
+| **Full GUI via VNC** | Utilizes the lightweight **XFCE Desktop Environment** and a **TightVNC Server** for remote graphical access. | Seamless desktop experience on your Android device. |
+| **Developer Tools** | Pre-installed with **VS Code** (Visual Studio Code), **Git**, and the **Java Development Kit (JDK)**. | Ready-to-code environment for mobile development and version control. |
 | **Web Browsing** | Includes **Mozilla Firefox** for a secure and modern browsing experience. | Full-featured web access within the Linux environment. |
 | **Optimized Performance** | Built on a minimal Ubuntu image using \`proot-distro\` for fast startup and low resource consumption. | Quick deployment and efficient use of device resources. |
-| **Google Anti-Gravity IDE** | Placeholder for the requested **Google Anti-Gravity IDE** (to be implemented). | Future-proof for advanced development needs. |
+| **Future-Ready** | Includes placeholders for **Android Studio** and the requested **Google Anti-Gravity IDE**. | Future-proof for advanced development needs. |
 
 ## 🚀 Installation
 
@@ -25,54 +25,53 @@ Follow these simple steps to get Solo-Ubuntu up and running on your Termux appli
 ### Prerequisites
 
 1.  Install **Termux** from the official source (e.g., F-Droid or GitHub).
-2.  Ensure your device has at least 4GB of free storage.
+2.  Ensure your device has at least **4GB of free storage** and a stable internet connection.
 
 ### Step-by-Step Guide
 
-1.  **Update Termux and Clone the Repository:**
+1.  **Clone the Repository and Run Setup:**
 
     ```bash
-    yes | pkg update && pkg upgrade
+    pkg update && pkg upgrade -y
     pkg install git wget -y
     git clone --depth=1 https://github.com/SoloFFFF77/Solo-Ubuntu.git
     cd Solo-Ubuntu
     bash setup.sh
     ```
 
-2.  **Run User Setup:**
-    After the initial setup, restart Termux, and run the user configuration script.
+2.  **Run User Setup (Inside Ubuntu):**
+    After the initial setup, enter the Ubuntu environment and run the user configuration script to set your VNC password.
 
     ```bash
     ubuntu
     bash user.sh
     ```
-    *(Note: This script will prompt you to set a username and other initial configurations.)*
+    **IMPORTANT:** You will be prompted to set a VNC password. Note it down.
 
-3.  **Start the GUI Environment:**
-    Finally, run the GUI setup script to install the desktop environment and VNC server.
+3.  **Install GUI and Applications (Inside Ubuntu):**
+    Run the GUI setup script with `sudo` to install the desktop environment and all pre-requested applications.
 
     ```bash
     ubuntu
     sudo bash gui.sh
     ```
-    **IMPORTANT:** Note down the VNC password displayed during this step.
 
 ## 💻 Usage
 
 Once installed, managing your Solo-Ubuntu environment is straightforward:
 
-| Command | Description |
-| :--- | :--- |
-| \`ubuntu\` | Enters the Ubuntu command-line environment. |
-| \`vncstart\` | Starts the VNC server for graphical access. |
-| \`vncstop\` | Stops the running VNC server. |
-| \`bash remove.sh\` | Completely removes the Solo-Ubuntu installation. |
+| Command | Description | Location |
+| :--- | :--- | :--- |
+| \`ubuntu\` | Enters the Ubuntu command-line environment. | Termux |
+| \`vncstart\` | Starts the VNC server on display \`:1\` (port 5901). | Ubuntu CLI |
+| \`vncstop\` | Stops the running VNC server. | Ubuntu CLI |
+| \`bash remove.sh\` | Completely removes the Solo-Ubuntu installation. | Termux |
 
 ### Connecting with VNC Viewer
 
 1.  Install a VNC Viewer application (e.g., RealVNC Viewer) on your Android device.
 2.  Create a new connection with the address: \`localhost:1\`.
-3.  Enter the VNC password you set during the installation.
+3.  Enter the VNC password you set during the `user.sh` script execution.
 4.  Enjoy your full Ubuntu desktop experience!
 
 ## 📸 Screenshots
